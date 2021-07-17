@@ -1,0 +1,95 @@
+<section class="heading-section">
+    <h1 class="title is-1 has-text-centered">Todos</h1>
+</section>
+ 
+<div class="container">
+    <div class="add-todo-box">
+        <form #form="ngForm" (ngSubmit)="onCreateTodos()">
+            <h2 class="title is-5">New Todo</h2>
+            <div class="field is-grouped">
+                <div class="control is-expanded">
+                    <input [(ngModel)] = "newTodoText" type="text" class="input" name="newTodoTextInput" placeholder="Type Todo text here...">
+                </div>
+                <div class="control is-expanded">
+                    <input [(ngModel)] = "newTodoDate" type="date" class="input" name="newTodoDateInput" placeholder="Type Todo Completion Date here...">
+                </div>
+                <div class="control">
+                    <button class="button alt-gradient-button">
+                        <i class="material-icons">add</i>
+                        Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="column left">
+                <form #form="ngForm" (ngSubmit)="onFilterTodos()">
+                    <h2 class="title is-5">Filter Todo</h2>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <input [(ngModel)] = "filterDate" class="input" type = "date" placeholder="Select Date" name="filterdate">
+                        </div>
+                        <div class="control is-expanded">   
+                            <select [(ngModel)] = "filterStatus" class="input" name="filterstatus">    
+                                <option value="completed" >Completed</option>
+                                <option value="uncompleted">Uncompleted</option>
+                            </select>
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button alt-gradient-button" >
+                            Filter Todos
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="column right">
+                <form #form="ngForm" (ngSubmit)="onSortTodos()">
+                    <h2 class="title is-5">Sort Todos:</h2>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="submit" class="button alt-gradient-button" >
+                            Sort Todos
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+
+
+<section class="section">
+    <div class="container">
+        <div class="todos-list">
+            <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
+                <div class="check-box">
+                    <i class="material-icons">
+                        check
+                    </i>
+                </div>
+                <div class="todo-text">
+                    {{todo.text}}
+                </div>
+                <div class="todo-text">
+                    {{todo.completiondate}}
+                </div>
+                <div class="todo-control-bar">
+                    <div class="todo-control-button">
+                        <i class="material-icons">edit</i>
+                    </div>
+                    <div class="todo-control-button is-danger">
+                        <i class="material-icons">delete</i>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+

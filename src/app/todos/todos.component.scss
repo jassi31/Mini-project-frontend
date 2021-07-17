@@ -1,0 +1,123 @@
+.heading-section {
+    background: linear-gradient(to right,rgb(2,228,171),rgb(74,215,240));
+    padding:100px;
+    padding-bottom: 150px;
+    .title{
+        font-weight: bold;
+        color:white;
+        text-shadow: 0px 1px 2px rgba(black, 0.12);
+    }
+}
+
+.container {
+    width : 800px;
+}
+
+.add-todo-box{
+    background: white;
+    padding:25px;
+    border-radius: 4px;
+    margin-top: -65px;
+    box-shadow: 0 4px 12px rgba(black, 0.08);
+}
+
+.row {
+    display: flex;
+  }
+  
+.column {
+    float: left;
+  }
+  
+  .left {
+    width: 90%;
+  }
+  
+  .right {
+    width: 10%;
+  }
+
+i.material-icons{
+    margin-right: 5px;
+    margin-left:-4px
+}
+
+.todo-item{
+    position: relative;
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    padding:35px 15px;
+    border-bottom: 1px solid #f2f3f5;
+    cursor: pointer;
+    .check-box{
+        display: flex;
+        border: 2px solid #eee;
+        flex-shrink: 0;
+        border-radius: 50%;
+        height:25px;
+        width:25px;
+        margin-right: 20px;
+        i.material-icons{
+            font-size: 17px;
+            margin: auto;
+            opacity: 0;
+        }
+    }
+    &.completed{
+        color:#aaa;
+    }
+}
+.todo-item:hover .check-box{
+    background: #eee;
+    i.material-icons{
+        opacity:0.28;
+    }
+}
+
+.todo-item.completed .check-box{
+    background: rgb(11,223,170);
+    border-color: rgb(11,223,170);
+    i.material-icons{
+        opacity: 1;
+        color:black;
+    }
+}
+
+
+.todo-item .todo-control-bar{
+    position: absolute;
+    bottom: 0;
+    right:5px;
+    display: flex;
+    opacity:0;
+    visibility: hidden;
+    
+    .todo-control-button{
+        display: flex;
+        background: #f5f7f8;
+        padding: 7px 10px;
+        i.material-icons{
+            font-size: 20px;
+        }
+        &:hover{
+            background: #eee;
+            i.material-icons{
+                color:#333;
+            }
+        }
+        &:active{
+            background: #e5e7e8;
+        }
+    }
+    .todo-control-button.is-danger:active i.material-icons{
+        color:rgb(155,27,27);
+    
+    
+    }
+    
+}
+.todo-item:hover .todo-control-bar{
+    opacity: 1;
+    visibility: visible;
+}
