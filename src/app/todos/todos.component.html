@@ -23,48 +23,48 @@
         </form>
     </div>
 </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="column left">
-                <form #form="ngForm" (ngSubmit)="onFilterTodos()">
-                    <h2 class="title is-5">Filter Todo</h2>
-                    <div class="field is-grouped">
-                        <div class="control is-expanded">
-                            <input [(ngModel)] = "filterDate" class="input" type = "date" placeholder="Select Date" name="filterdate">
-                        </div>
-                        <div class="control is-expanded">   
-                            <select [(ngModel)] = "filterStatus" class="input" name="filterstatus">    
-                                <option value="completed" >Completed</option>
-                                <option value="uncompleted">Uncompleted</option>
-                            </select>
-                        </div>
-                        <div class="control">
-                            <button type="submit" class="button alt-gradient-button" >
-                            Filter Todos
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="column right">
-                <form #form="ngForm" (ngSubmit)="onSortTodos()">
-                    <h2 class="title is-5">Sort Todos:</h2>
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button type="submit" class="button alt-gradient-button" >
-                            Sort Todos
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> 
-
+        
+            
+          
+   
 
 <section class="section">
     <div class="container">
+
+            <div class="float-container" >
+                <form #form="ngForm" (ngSubmit)="onFilterTodos()">
+                    <div class="float-container" style="border:1px dotted #808080; border-radius:5px;">
+                        <div class="float-child "  name="filterDateInput">
+                            <label for="filterdate">Select a Date:</label>
+                            <input [(ngModel)] = "filterDate" class="input" type = "date" placeholder="Select Date" name="filterdate">
+                        </div>
+                        <div class="float-child ">
+                        <label for="filterStatusInput">Select Status:</label><br>
+                        <div name="filterStatusInput">  
+                            <input [(ngModel)] = "filterStatus" type="radio" id="completedStatus" name="completedStatus" value="completed">
+                            <label for="completedStatus" style="padding-left:10px">Completed</label><br>
+                            <input [(ngModel)] = "filterStatus" type="radio" id="uncompletedStatus" name="uncompletedStatus" value="uncompleted">
+                            <label for="uncompletedStatus" style="padding-left:10px">Uncompleted</label><br>
+                        </div>
+                        </div>
+                        <div class="float-child ">
+                            <button type="submit" class="button alt-gradient-button" style="margin-top:15px;" >
+                            Filter Todos
+                            </button>
+                        </div>  
+                    </div>
+                </form>
+            <div class="float-child" style="text-align:right;">
+                <button type="submit" click="onSortTodos()" style="text-align:right; margin-top:20px;" class="button alt-gradient-button" >
+                    Sort Todos
+                </button>
+            </div> 
+        </div>
+            
+             
+
+     
+
         <div class="todos-list">
             <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
                 <div class="check-box">
@@ -75,8 +75,11 @@
                 <div class="todo-text">
                     {{todo.text}}
                 </div>
-                <div class="todo-text">
+                <div class="todo-text" style="margin-left: 50px;">
                     {{todo.completiondate}}
+                </div>
+                <div class="todo-text" style="margin-left: 50px;">
+                    {{todo.recordid}}
                 </div>
                 <div class="todo-control-bar">
                     <div class="todo-control-button">
