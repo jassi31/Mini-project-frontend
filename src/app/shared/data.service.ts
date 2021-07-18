@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Todo} from './todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
-  todos:Todo[]=[
-    new Todo('jassi is a good boy!',true),
-    new Todo('jassi is a good boy and he sure is')
-  ]
 
   constructor() { }
   
@@ -19,19 +15,19 @@ export class DataService {
       { text:   "Wake up at 5 early at morning.",
         completed: false,
         completiondate: "2021-07-17",
-        recordId: "001"},
+        recordid: "001"},
         { text:   "Wake up at 5 early at morning.",
         completed: true,
         completiondate: "2021-07-15",
-        recordId: "002"},
+        recordid: "002"},
           { text:   "Wake up at 5 early at morning.",
           completed: true,
           completiondate: "2021-07-16",
-          recordId: "003"},
+          recordid: "003"},
             { text:   "Wake up at 5 early at morning.",
             completed: false,
             completiondate: "2021-07-17",
-            recordId: "004"}
+            recordid: "004"}
     ]};
     return todorecordObj;
   }
@@ -42,12 +38,10 @@ export class DataService {
 
   }
 
-  updateTodo(index:number , updatedTodo:Todo){
-    this.todos[index]=updatedTodo;
+  updateTodo(){
   }
 
   deleteTodo(index:number){
-    this.todos.splice(index,1);
   }
 
   getFilteredTodos( filterDate:string, filterStatus:string){
@@ -56,10 +50,12 @@ export class DataService {
     let todorecordObj = { records : [
       { text:   "Wake up at 5 early at morning.",
         completed: false,
-        date: "2021-07-17"},
+        date: "2021-07-17",
+        recordid: "004"},
             { text:   "Wake up at 5 early at morning.",
             completed: false,
-              date: "2021-07-17"}
+              date: "2021-07-17",
+              recordid: "003"}
     ]};
     return todorecordObj;
   }
